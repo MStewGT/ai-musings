@@ -16,7 +16,7 @@ def submit_to_ai(words):
     import requests
     url = 'https://api.openai.com/v1/engines/davinci/completions'
     headers = {
-        f'Authorization': 'Bearer {OPENAI_TOKEN}',
+        'Authorization': 'Bearer {}'.format(OPENAI_TOKEN),
     }
     data = {
     'prompt': input,
@@ -27,9 +27,10 @@ def submit_to_ai(words):
     }
     response = requests.post(url, headers=headers, json=data)
     json_response = response.json()
+    return json_response
 
 #Get words, generate input, submit to AI
 words = random_words(),random_words()
-input = "What are you thoughts on " + words[0] + " and " + words[1] + "?"
+input = "What are your thoughts on " + words[0] + " and " + words[1] + "?"
 output = submit_to_ai(input)
-print (output)
+print (words,output)

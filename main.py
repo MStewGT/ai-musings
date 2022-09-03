@@ -1,4 +1,5 @@
 #Retrieve API token from environment variable
+from urllib import response
 from decouple import config
 from post_twitter import tweet
 OPENAI_TOKEN = config('OPENAI_TOKEN')
@@ -35,8 +36,9 @@ output = submit_to_ai(input)
 #Extract 'text' property and split string after the last period
 text = output['choices'][0]['text']
 print (text)
-text = text.rsplit('.', 1)[0]
 text = text.split('\n', 1)[1]
+text = text.rsplit('.', 1)[0]
 
 #Tweet the output
 tweet(text)
+print(response)

@@ -1,8 +1,7 @@
 #Retrieve API token from environment variable
-from urllib import response
 from decouple import config
 from post_twitter import tweet
-OPENAI_TOKEN = config('OPENAI_TOKEN')
+openai_token = config('OPENAI_TOKEN')
 
 #Function to get a random word from an api
 def random_words():
@@ -16,7 +15,7 @@ def random_words():
 #Function to submit the input to the AI
 def submit_to_ai(words):
     import openai
-    openai.api_key = OPENAI_TOKEN
+    openai.api_key = openai_token
     response = openai.Completion.create(
         model="text-davinci-002",
         prompt=input,
@@ -41,4 +40,3 @@ text = text.rsplit('.', 1)[0]
 
 #Tweet the output
 tweet(text)
-print(response)

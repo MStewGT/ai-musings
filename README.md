@@ -12,3 +12,8 @@ Next the script extracts the 'text' property from the json return of the AI API 
 
 ### Tweet submission
 Finally, the script uses the Tweepy library to authenticate to the Twitter account and make a post using the generated content.
+
+### Necessary packages
+- python-decouple
+- openai
+- tweepy

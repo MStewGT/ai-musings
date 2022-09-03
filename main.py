@@ -18,7 +18,7 @@ def submit_to_ai(words):
     openai.api_key = OPENAI_TOKEN
     response = openai.Completion.create(
         model="text-davinci-002",
-        prompt="What are your thoughts on space and synthwave.",
+        prompt=input,
         temperature=0.7,
         max_tokens=69,
         top_p=1,
@@ -29,12 +29,14 @@ def submit_to_ai(words):
 
 #Get words, generate input, submit to AI
 words = random_words(),random_words()
-input = "What are your thoughts on " + words[0] + " and " + words[1] + "?"
+input = "Write a Shakespearean sonnet about " + words[0] + " and " + words[1] + "?"
 output = submit_to_ai(input)
-#Cutoff 'output' string after the last period
-#output = output.rsplit('.', 1)[0]
-print (words,output)
 
+#Extract 'text' property and split string after the last period
+text = output['choices'][0]['text']
+print (text)
+text = text.rsplit('.', 1)[0]
+text = text.split('\n', 1)[1]
 
 #Tweet the output
-#tweet(output)
+tweet(text)

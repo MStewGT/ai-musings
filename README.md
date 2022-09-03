@@ -15,5 +15,6 @@ Finally, the script uses the Tweepy library to authenticate to the Twitter accou
 
 ### Necessary packages
 - python-decouple
+- requests
 - openai
 - tweepy

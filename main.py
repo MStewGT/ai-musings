@@ -1,3 +1,4 @@
+import random
 #Retrieve API token from environment variable
 from decouple import config
 from post_twitter import tweet
@@ -28,8 +29,14 @@ def submit_to_ai(words):
     return response
 
 #Get words, generate input, submit to AI
-words = random_words(),random_words()
-input = "Write a Shakespearean sonnet about " + words[0] + " and " + words[1] + "?"
+prompts = [
+    "Write a Shakespearean sonnet about ",
+    "Write a poem in the style of Edgar Allen Poe about",
+    "Write a love song about ",
+    "Write a haiku about ",
+    "Write a story in pig latin about "
+    ]
+input = random.choice(prompts) + random_words() + "?"
 output = submit_to_ai(input)
 
 #Extract 'text' property and split string after the last period

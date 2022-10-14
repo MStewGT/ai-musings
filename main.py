@@ -31,7 +31,7 @@ def submit_to_ai(words):
 #Get words, generate input, submit to AI
 prompts = [
     "Write a Shakespearean sonnet about ",
-    "Write a poem in the style of Edgar Allen Poe about",
+    "Write a poem in the style of Edgar Allen Poe about ",
     "Write a love song about ",
     "Write a haiku about ",
     "Write a story in pig latin about "

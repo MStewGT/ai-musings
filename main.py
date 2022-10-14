@@ -36,14 +36,17 @@ prompts = [
     "Write a haiku about ",
     "Write a story in pig latin about "
     ]
-input = random.choice(prompts) + random_words() + "?"
+input = random.choice(prompts) + random_words() + "."
 output = submit_to_ai(input)
 
 #Extract 'text' property and split string after the last period
 text = output['choices'][0]['text']
-print (text)
 text = text.split('\n', 1)[1]
 text = text.rsplit('.', 1)[0]
+
+#Debugging
+print(input)
+print (text)
 
 #Tweet the output
 tweet(text)
